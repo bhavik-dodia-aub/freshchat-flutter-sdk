@@ -50,7 +50,7 @@ NSNotificationCenter *center;
         if(![themeName isEqual:[NSNull null]]) {
             freshchatConfig.themeName = themeName;
         }
-        
+
         if(![stringsBundle isEqual:[NSNull null]]) {
             freshchatConfig.stringsBundle = stringsBundle;
         }
@@ -253,7 +253,7 @@ NSNotificationCenter *center;
     } @catch (NSException *exception) {
         NSLog(@"Error on set user with id token: %@ %@", exception.name, exception.reason);
     }
-    
+
 }
 
 -(void)restoreUserWithJwt:(FlutterMethodCall *) call{
@@ -452,11 +452,11 @@ NSNotificationCenter *center;
 
 - (UIViewController*) topMostController {
     UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    
+
     while (topController.presentedViewController) {
         topController = topController.presentedViewController;
     }
-    
+
     return topController;
 }
 
@@ -509,7 +509,7 @@ NSNotificationCenter *center;
     }else if([@"setNotificationConfig" isEqualToString:call.method]){
         [instance setNotificationConfig];
     }else if([@"setPushRegistrationToken" isEqualToString:call.method]){
-        [instance setPushRegistrationToken:[call.arguments[@"token"]dataUsingEncoding:NSUTF8StringEncoding]];
+        [instance setPushRegistrationToken:[call.arguments[@"token"]]];
     }else if([@"isFreshchatNotification" isEqualToString:call.method]){
         if([instance isFreshchatNotification:call.arguments[@"pushPayload"]]){
             result(@YES);
